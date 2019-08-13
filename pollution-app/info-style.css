@@ -1,0 +1,213 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    background-color: #0051BA;
+    /* height: 100vh;  */
+    box-sizing: border-box; 
+  }
+
+h2 {
+    color: #e8000d;
+}
+
+h3{
+    color: #0051BA; 
+}
+
+h4{
+    font-size: 20px; 
+    padding: 20px; 
+}
+
+form{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reveal {
+    visibility: hidden; 
+}
+
+/* main grid  */
+
+.app-navigation{
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh; 
+    /* max-height: 100vh;  */
+    overflow: hidden; 
+    max-width: 100%; 
+    display: grid;
+    grid-template-columns: 5em 1fr 5em;
+    grid-template-rows: 5em 1fr;
+  grid-template-areas:
+      "menu-button banner banner"
+      "side-nav app empty-col-symmetry";
+}
+
+
+.menu-button{
+    grid-area:menu-button;
+    background-color: #e8000d;
+    display: grid;
+    max-width: 5em; 
+    grid-template-columns: 2fr 7fr 2fr;
+    grid-template-rows: 5fr 1fr 1fr 1fr 1fr 1fr 5fr;
+    grid-template-areas:
+          ". . . "
+          ". bar1 . "
+          ". . . "
+          ". bar2 . "
+          ". . . "
+          ". bar3 . "
+          ". . . ";
+}
+
+
+.bar1{
+    grid-area: bar1;
+    background-color: white;
+    z-index: 2000;
+    border-radius: 40%;
+    max-height: 1em;
+}
+.bar2{
+    grid-area: bar2;
+    background-color: white;
+    border-radius: 40%;
+}
+.bar3{
+    grid-area: bar3;
+    background-color: white;
+    border-radius: 40%;
+ }
+
+ .app{
+    grid-area: app; 
+    overflow: hidden; 
+    text-align: center;
+    display: grid; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    max-width: 100%; 
+    max-height: 100%; 
+    background: linear-gradient(#eeeced,#0051BA );
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+ .banner{
+     grid-area: banner; 
+     /* background-color: #0051BA; */
+     background: linear-gradient(#0051BA, #eeeced);
+     color: white; 
+     text-align: center; 
+ }
+
+ .side-nav{
+    grid-area: side-nav; 
+     /* background-color: #e8000d; */
+     color: white; 
+     background: linear-gradient(#eeeced,#0051BA );
+     text-align: center; 
+     transition-timing-function: ease-in;
+     text-decoration: none;  
+     /* max-width: .1em;  */
+     /* visibility: hidden; */
+ }
+
+ .empty-col-symmetry{
+     grid-area: empty-col-symmetry; 
+     background: linear-gradient(#eeeced,#0051BA ); 
+ }
+
+ .side-nav a{
+     text-decoration: none; 
+     color: white; 
+     font-family: 'Courier New', Courier, monospace; 
+     padding: 3em, 0em, 0em, 3em;  
+ }
+
+.side-link{
+    opacity: .7;
+    visibility: hidden;
+}
+
+.about{
+    max-width: 70%; 
+}
+.faq{
+    max-width: 70%; 
+}
+
+
+/* for mobile*/
+@media screen and (max-width: 500px) {
+
+    h1{
+        font-size: 1.5em; 
+        color: #eeeced; 
+    }
+
+    .about h2{
+        color: white; 
+    }
+    .faq h2{
+        color: white; 
+    }
+    h3{
+        color: #FFC82D;
+    }
+    .app-navigation{
+        margin: 0 auto;
+        width: 100%;
+        max-height: 100%; 
+        overflow: hidden; 
+        max-width: 100%; 
+        display: grid;
+        grid-template-columns: 1em 4em 1fr 4em 1em;
+        grid-template-rows: 5em 1fr;
+      grid-template-areas:
+          "menu-button menu-button banner banner banner"
+          "side-nav app app app empty-col-symmetry";
+    }
+
+    .banner{
+        background: #0051BA;
+        color: white;
+    }
+
+    .side-nav{
+        grid-area: side-nav; 
+         /* background-color: #e8000d; */
+         color: white; 
+         background: linear-gradient(#0051BA,#eeeced); 
+         text-align: center; 
+         transition-timing-function: ease-in;
+         text-decoration: none;  
+         /* max-width: .1em;  */
+         /* visibility: hidden; */
+     }
+
+    .empty-col-symmetry{
+        grid-area: empty-col-symmetry; 
+        background: linear-gradient(#0051BA,#eeeced); 
+    }
+
+    .app{
+        background: linear-gradient(#0051BA,#eeeced);
+    }
+
+    .faq{
+        font-size: 14px; 
+    }
+}
+
+/*mobile 650px height and below*/
+@media screen and (max-height: 650px){
+    .app-navigation{
+        height: 120vh; 
+    }
+}

@@ -1,0 +1,417 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+    background-color: #0051BA;
+    /* height: 100vh;  */
+    box-sizing: border-box; 
+  }
+
+h2 {
+    color: #0051BA; 
+}
+
+h4{
+    font-size: 20px; 
+    padding: 20px; 
+}
+
+form{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reveal {
+    visibility: hidden; 
+}
+
+/* main grid  */
+
+.app-navigation{
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh; 
+    /* max-height: 100vh;  */
+    overflow: hidden; 
+    max-width: 100%; 
+    display: grid;
+    grid-template-columns: 5em 1fr 5em;
+    grid-template-rows: 5em 1fr;
+  grid-template-areas:
+      "menu-button banner banner"
+      "side-nav app empty-col-symmetry";
+}
+
+.app-navigation-info-pages{
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh; 
+    /* max-height: 100vh;  */
+    overflow: hidden; 
+    max-width: 100%; 
+    display: grid;
+    grid-template-columns: 5em 1fr 5em;
+    grid-template-rows: 5em 1fr;
+  grid-template-areas:
+      "menu-button banner banner"
+      "side-nav info empty-col-symmetry";
+}
+
+
+.menu-button{
+    grid-area:menu-button;
+    background-color: #e8000d;
+    display: grid;
+    max-width: 5em; 
+    grid-template-columns: 2fr 7fr 2fr;
+    grid-template-rows: 5fr 1fr 1fr 1fr 1fr 1fr 5fr;
+    grid-template-areas:
+          ". . . "
+          ". bar1 . "
+          ". . . "
+          ". bar2 . "
+          ". . . "
+          ". bar3 . "
+          ". . . ";
+}
+
+
+.bar1{
+    grid-area: bar1;
+    background-color: white;
+    z-index: 2000;
+    border-radius: 40%;
+    max-height: 1em;
+}
+.bar2{
+    grid-area: bar2;
+    background-color: white;
+    border-radius: 40%;
+}
+.bar3{
+    grid-area: bar3;
+    background-color: white;
+    border-radius: 40%;
+ }
+
+ .banner{
+     grid-area: banner; 
+     /* background-color: #0051BA; */
+     background: linear-gradient(#0051BA, #eeeced);
+     color: white; 
+     text-align: center; 
+ }
+
+ .side-nav{
+    grid-area: side-nav; 
+     /* background-color: #e8000d; */
+     color: white; 
+     background: linear-gradient(#eeeced,#0051BA );
+     text-align: center; 
+     transition-timing-function: ease-in;
+     text-decoration: none;  
+     /* max-width: .1em;  */
+     /* visibility: hidden; */
+ }
+
+ .empty-col-symmetry{
+     grid-area: empty-col-symmetry; 
+     background: linear-gradient(#eeeced,#0051BA ); 
+ }
+
+ .side-nav a{
+     text-decoration: none; 
+     color: white; 
+     font-family: 'Courier New', Courier, monospace; 
+     padding: 3em, 0em, 0em, 3em;  
+ }
+
+.side-link{
+    opacity: .7;
+    visibility: hidden;
+}
+
+
+ .app{
+     grid-area: app; 
+     overflow: hidden; 
+     text-align: center;
+     display: grid; 
+     font-family: Verdana, Geneva, Tahoma, sans-serif; 
+     max-width: 100%; 
+     max-height: 100%; 
+     background: linear-gradient(#eeeced,#0051BA );
+     grid-template-rows: 1fr 5em 1fr 1fr 1fr 1fr; 
+     grid-template-columns: 1fr 2fr 2fr 1fr; 
+     grid-template-areas:
+        " city-info city-info city-info city-info" 
+        ". chosen-city beijing ." 
+        "chosen-pollution-data chosen-pollution-data beijing-pollution-data beijing-pollution-data"
+        "chosen-pollution-description chosen-pollution-description beijing-pollution-description beijing-pollution-description"
+        ". comparison-box comparison-box ."
+        ". . restart . "; 
+        grid-gap: 1em; 
+        
+}
+/* ALL CODE BELOW THIS IS SPECIFIC TO THE APP SECTION */
+
+.city-info{
+    grid-area: city-info; 
+    text-align: center; 
+    /* width: 20em;  */
+    color: #0051BA; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+#state-wrap{
+    visibility: hidden; 
+}
+
+#city{
+    visibility: hidden;
+}
+
+.start{
+    grid-area: start; 
+    height: 2em; 
+    width: 10em; 
+    background-color: #e8000d;
+    color: white; 
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+}
+
+.chosen-city{
+    grid-area: chosen-city; 
+    color: #0051BA;
+    font-size: 2.5em; 
+    padding: 0; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.beijing{
+    grid-area: beijing; 
+    color: #0051BA; 
+    font-size: 2.5em; 
+    padding: 0; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chosen-pollution-data{
+    grid-area: chosen-pollution-data; 
+    background: #83d489;
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center; 
+    margin: 0 1em 0 1em; 
+    
+}
+
+.beijing-pollution-data{
+    grid-area: beijing-pollution-data; 
+    background: #eb852d;
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center; 
+    margin: 0 1em 0 1em; 
+    
+}
+
+.chosen-pollution-description{
+    grid-area: chosen-pollution-description; 
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center; 
+    background: #757c85;
+    color: white; 
+    margin: 0 1em 0 1em; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beijing-pollution-description{
+    grid-area: beijing-pollution-description; 
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center; 
+    background: #757c85;
+    color: white; 
+    margin: 0 1em 0 1em; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comparison-box{
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+    text-align: center; 
+    grid-area: comparison-box; 
+    background-color: #FFC82D;
+    color: #0051BA; 
+    font-weight: 200; 
+    margin: 0 1em 0 1em; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.restart{
+    grid-area: restart; 
+    height: 2em; 
+    width: 7em; 
+    background-color: #0051BA; 
+    color: white; 
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* this is where you will place your media queries for mobile */
+
+/*mobile 500px width and below*/
+@media screen and (max-width: 500px) {
+    h1{
+        font-size: 1.5em; 
+        color: #eeeced; 
+    }
+    .city-info{
+        width: 20em; 
+    }
+    #city{
+        width: 12.5em; 
+        max-width: 12.5em;
+    }
+    #country{
+        width: 12.5em; 
+        max-width: 12.5em;
+    }
+    #state{
+        width: 12.5em; 
+        max-width: 12.5em;
+    }
+    .heading{
+        color: #eeeced; 
+    }
+    /* h2 {
+        color: #0051BA; 
+    } */
+    .app-navigation{
+        margin: 0 auto;
+        width: 100%;
+        max-height: 100%; 
+        overflow: hidden; 
+        max-width: 100%; 
+        display: grid;
+        grid-template-columns: 1em 4em 1fr 4em 1em;
+        grid-template-rows: 5em 1fr;
+      grid-template-areas:
+          "menu-button menu-button banner banner banner"
+          "side-nav app app app empty-col-symmetry";
+    }
+
+    /* .app-navigation{
+        height: 120vh; 
+    } */
+ 
+    .banner{
+        background: #0051BA;
+        color: white;
+    }
+    .side-nav{
+        grid-area: side-nav; 
+         /* background-color: #e8000d; */
+         color: white; 
+         background: linear-gradient(#0051BA,#eeeced); 
+         text-align: center; 
+         transition-timing-function: ease-in;
+         text-decoration: none;  
+         /* max-width: .1em;  */
+         /* visibility: hidden; */
+     }
+
+    .empty-col-symmetry{
+        grid-area: empty-col-symmetry; 
+        background: linear-gradient(#0051BA,#eeeced); 
+    }
+
+    .app{
+        grid-area: app; 
+        text-align: center;
+        display: grid; 
+        max-width: 100%; 
+        overflow: hidden; 
+        background: linear-gradient(#0051BA,#eeeced); 
+        grid-template-rows: 1fr 3em 1fr 4em 3em 1fr 4em 1fr 5em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "city-info city-info"
+            "beijing beijing"
+            "beijing-pollution-data beijing-pollution-data"
+            "beijing-pollution-description beijing-pollution-description"
+            "chosen-city chosen-city"
+            "chosen-pollution-data chosen-pollution-data"
+            "chosen-pollution-description chosen-pollution-description"
+            "comparison-box comparison-box"
+            "restart restart";
+            grid-gap: .5em; 
+           
+   }
+   .beijing{
+       color: #FFC82D; 
+   }
+   .chosen-city{
+       color: #FFC82D;
+   }
+   .beijing-pollution-data{
+    color: #0051BA; 
+   }
+
+   .chosen-pollution-data{
+    color: #0051BA; 
+   }
+
+   .menu-button{
+    grid-area:menu-button;
+    background-color: color: #e8000d;
+    display: grid;
+    grid-template-columns: 2fr 7fr 2fr;
+    grid-template-rows: 5fr 1fr 1fr 1fr 1fr 1fr 5fr;
+    grid-template-areas:
+          ". . . "
+          ". bar1 . "
+          ". . . "
+          ". bar2 . "
+          ". . . "
+          ". bar3 . "
+          ". . . ";
+}
+
+
+/*mobile 650px height and below*/
+@media screen and (max-height: 650px){
+    .app-navigation{
+        height: 120vh; 
+    }
+    .beijing-pollution-description{
+        font-size: 12px; 
+    }
+    .chosen-pollution-description{
+        font-size: 12px; 
+    }
+}   
